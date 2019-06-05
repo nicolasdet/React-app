@@ -1,7 +1,8 @@
-import { TESTACTION } from '../actions/custom.actions';
+import { TESTACTION, UPDATEEMAILACTION } from '../actions/custom.actions';
 
 const defaultState = {
   test:  false,
+  email: '',
 };
 
 const customReducer = (state = defaultState, action) => {
@@ -17,6 +18,11 @@ const customReducer = (state = defaultState, action) => {
         return state;
       }
     break; 
+    case UPDATEEMAILACTION: 
+      return {
+          ...state,
+          email: action.payload
+        }
     default:
       return state;
   }
